@@ -110,8 +110,11 @@ Mètodes Privats</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Atributs Privats</h2></td></tr>
 <tr class="memitem:a756906e11a3394ff3ed0a6d77c474efd" id="r_a756906e11a3394ff3ed0a6d77c474efd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a756906e11a3394ff3ed0a6d77c474efd">numCelles</a></td></tr>
+<tr class="memdesc:a756906e11a3394ff3ed0a6d77c474efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de cel·les de l'autòmat.  <br /></td></tr>
 <tr class="memitem:a58e39d98b2a80a28983d1b34f00387cd" id="r_a58e39d98b2a80a28983d1b34f00387cd"><td class="memItemLeft" align="right" valign="top">boolean[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58e39d98b2a80a28983d1b34f00387cd">configuracio</a></td></tr>
+<tr class="memdesc:a58e39d98b2a80a28983d1b34f00387cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuració actual de les cel·les.  <br /></td></tr>
 <tr class="memitem:a383591530e3b517c9acd004826b62f6d" id="r_a383591530e3b517c9acd004826b62f6d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a383591530e3b517c9acd004826b62f6d">taulaVeritat</a></td></tr>
+<tr class="memdesc:a383591530e3b517c9acd004826b62f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Taula de veritat per les regles de transició.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Representa un autòmat cel·lular elemental. Gestiona l'estat de les cel·les i les regles de transició. </p>
@@ -142,8 +145,8 @@ Atributs Privats</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondició</dt><dd>numCelles &gt; 0; taulaVeritat és un string de 8 caràcters '0' o '1' </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>S'ha creat un autòmat amb totes les cel·les lliures </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>numCelles &gt; 0; taulaVeritat és un string de 8 caràcters '0' o '1'</dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>S'ha creat un autòmat de la mida indicada amb totes les cel·les inicialment buides </dd></dl>
 
 </div>
 </div>
@@ -179,8 +182,8 @@ Atributs Privats</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondició</dt><dd>taulaVeritat no és null i té 8 caràcters</dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>Retornat el nou estat de la cel·la segons les regles del tipus d'autòmat (usant la taula de veritat) </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>cert </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>Retorna el nou estat de la cel·la segons els veïns i les regles de transició </dd></dl>
 
 </div>
 </div>
@@ -206,8 +209,8 @@ Atributs Privats</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondició</dt><dd>cert</dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>S'ha calculat i establert la següent generació aplicant les regles </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>cert </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>S'ha calculat i establert la següent generació </dd></dl>
 
 </div>
 </div>
@@ -234,7 +237,7 @@ Atributs Privats</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section pre"><dt>Precondició</dt><dd>cert </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>S'ha mostrat la configuració actual per pantalla </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>S'ha mostrat l'estat actual de l'autòmat per pantalla </dd></dl>
 
 </div>
 </div>
@@ -260,7 +263,7 @@ Atributs Privats</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondició</dt><dd>1 &lt;= posicio &lt;= numCelles </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>posicio &gt; 0 </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>La cel·la de la posició indicada està ocupada </dd></dl>
 
 </div>
@@ -286,6 +289,9 @@ Atributs Privats</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Configuració actual de les cel·les. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd>configuracio != null &amp;&amp; configuracio.length == numCelles. </dd></dl>
+
 </div>
 </div>
 <a id="a756906e11a3394ff3ed0a6d77c474efd" name="a756906e11a3394ff3ed0a6d77c474efd"></a>
@@ -308,6 +314,9 @@ Atributs Privats</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Nombre de cel·les de l'autòmat. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd>numCelles &gt; 0. </dd></dl>
+
 </div>
 </div>
 <a id="a383591530e3b517c9acd004826b62f6d" name="a383591530e3b517c9acd004826b62f6d"></a>
@@ -329,6 +338,9 @@ Atributs Privats</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Taula de veritat per les regles de transició. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd>taulaVeritat != null &amp;&amp; taulaVeritat.length() == 8 &amp;&amp; taulaVeritat només conté '0' o '1'. </dd></dl>
 
 </div>
 </div>
